@@ -1,9 +1,11 @@
-@use './styles/scss/abstract/mixin';
+@use './styles/scss/abstract/mixin' as mx;
 @use './styles/scss/components/main';
+@use './styles/scss/pages/menu';
 
 body {
     height: 100vh;
     margin: 0 auto;
+    @include mx.flex-center($direction: row, $justify: space-between, $align: center);
 }
 
 

@@ -22,15 +22,17 @@ const welcome = document.getElementById("welcoming_screen");
 function welcomingScreen() {
     if (welcome) {
         welcome.innerHTML = welcomingScreenTemplate();
+        document.getElementById("play_button")?.addEventListener("click", closeWelcomingScreen);
     }
 }
 
-document.querySelector(".play_button")?.addEventListener("click", closeWelcomingScreen);
-
 function closeWelcomingScreen() {
-const welcome = document.getElementById("welcoming_screen_black");
-    if(welcome){
-        welcome.remove()
+    const welcome = document.getElementById("welcoming_screen");
+    if (welcome) {
+        welcome.style.transition = "transform 0.5s ease-in-out";
+        welcome.style.transform = "translateX(100vw)";
+        setTimeout(() => {
+            welcome.style.display = "none";
+        }, 500);
     }
-    console.log("clicked");
 }

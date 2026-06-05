@@ -1,6 +1,22 @@
-@mixin flex-center($direction: row, $justify: center, $align: center){
+@mixin flex-center($direction: row, $justify: center, $align: center) {
     display: flex;
     flex-direction: $direction;
     justify-content: $justify;
     align-items: $align;
+}
+
+@mixin red-rose($align: center, $size: 20px, $style: normal, $weight: 500) {
+    font-family: "Red Rose";
+    font-weight: $weight;
+    font-style: $style;
+    font-size: $size;
+    text-align: $align;
+}
+
+@mixin almarai($align: center, $size: 20px, $style: normal, $weight: 500) {
+    font-family: "Almarai";
+    font-weight: $weight;
+    font-style: $style;
+    font-size: $size;
+    text-align: $align;
 }

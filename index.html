@@ -7,26 +7,107 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Red+Rose:wght@300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Red+Rose:wght@300..700&display=swap"
+        rel="stylesheet">
     <link href="./src/style.scss" rel="stylesheet">
     <title>Memory</title>
 </head>
 
 <body>
 
-    <div id="welcoming_screen" class="welcome_screen"></div>
+    <!-- <div id="welcoming_screen" class="welcome_screen"></div> -->
 
-
-    <!-- <section id="field">
-        <button id="card" class="card">
-            <div class="card__inner">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
+    <aside>
+        <h1 class="asideh1">Settings</h1>
+        <img src="./public/assets/Line 3.svg">
+        <section class="textsection">
+            <div class="textsection__title">
+                <img src="./public/assets/palette.svg">
+                <p>Game themes</p>
             </div>
-        </button>
-    </section> -->
+            <div class="textsection__selection" id="code_vibes_theme">
+                <div class="textsection__selector">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>Code vibes theme</p>
+                </div>
+                <div class="textsection__selector" id="gaming_theme">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>Gaming theme</p>
+                </div>
+                <div class="textsection__selector" id="da_projects_theme">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>DA Projects theme</p>
+                </div>
+                <div class="textsection__selector" id="foods_theme">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>Foods theme</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="textsection">
+            <div class="textsection__title">
+                <img src="./public/assets/chess_pawn.svg">
+                <p>Choose player</p>
+            </div>
+            <div class="textsection__selection">
+                <div class="textsection__selector" id="player_blue">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>Blue</p>
+                </div>
+                <div class="textsection__selector" id="player_orange">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>Orange</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="textsection">
+            <div class="textsection__title">
+                <img src="./public/assets/style.svg">
+                <p>Board size</p>
+            </div>
+            <div class="textsection__selection">
+                <div class="textsection__selector" id="16_cards">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>16 cards</p>
+                </div>
+                <div class="textsection__selector" id="24_cards">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>24 cards</p>
+                </div>
+                <div class="textsection__selector" id="36_cards">
+                    <img src="./public/assets/selection_circle.svg">
+                    <p>36 cards</p>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    <aside>
+        <section>
+            image image image
+        </section>
+        <section>
+            <div class="selectedbar">
+                <div class="selectedbar__text">
+                    <p>Game theme</p>
+                    <img src="./public/assets/Line 6.svg">
+                    <p>Player</p>
+                    <img src="./public/assets/Line 6.svg">
+                    <p>Board size</p>
+                </div>
+                <div class="startbutton">
+                    <img class="startbutton__img" src="./public/assets/smart_display.svg">
+                    <p>Start</p>
+                </div>
+            </div>
+        </section>
+    </aside>
 
     <script type="module" src="./src/main.ts"></script>
+    <script type="module" src="./src/menu.ts"></script>
 </body>
 
 </html>

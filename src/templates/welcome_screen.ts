@@ -6,13 +6,13 @@ export function welcomingScreenTemplate(): string{
                 </div>
                 <div class="controler_button_positioning">
                     <div class="controler_button_positioning__controler">
-                        <img class="controler_img" src="./public/assets/stadia_controller.svg">
+                        <img class="controler_img" src="./assets/stadia_controller.svg">
                     </div>
-                    <div class="play_button">
+                    <div class="play_button" id="play_button">
                         <div class="play_button__square">
-                        <img class="controler_img_small" src="./public/assets/stadia_controller_small.svg">
+                        <img class="controler_img_small" src="./assets/stadia_controller_small.svg">
                         <p>Play</p>
-                        <img class="arrow_img_small" src="./public/assets/Arrow 1.svg">
+                        <img class="arrow_img_small" src="./assets/Arrow 1.svg">
                         </div>
                     </div>
                 </div>

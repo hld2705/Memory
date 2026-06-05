@@ -1,0 +1,77 @@
+@use '../abstract/mixin' as mx;
+
+.asideh1 {
+    @include mx.red-rose($align: left, $size: 54px, $style: Bold, $weight: 700);
+    margin: 0px;
+}
+
+aside {
+    padding: 80px;
+}
+
+section {
+    @include mx.flex-center($direction: column, $justify: left, $align: flex-start);
+
+}
+
+.textsection {
+    @include mx.almarai($align: center, $size: 20px, $style: normal, $weight: 400);
+    margin-bottom: 30px;
+
+    p {
+        margin: 10px;
+    }
+
+    &__title {
+        @include mx.flex-center($direction: row, $justify: center, $align: center);
+        @include mx.almarai($align: center, $size: 24px, $style: Bold, $weight: 700);
+        gap: 20px;
+    }
+
+    &__selection {
+        @include mx.flex-center($direction: column, $justify: center, $align: flex-start);
+        @include mx.almarai($align: center, $size: 20px, $style: normal, $weight: 700);
+        gap: 10px;
+        padding-left: 20px;
+    }
+
+    &__selector {
+        @include mx.flex-center($direction: row, $justify: center, $align: center);
+        @include mx.almarai($align: center, $size: 20px, $style: normal, $weight: 400);
+        gap: 20px;
+        cursor: pointer;
+    }
+}
+
+.selectedbar {
+    @include mx.flex-center($direction: row, $justify: center, $align: center);
+    @include mx.almarai($align: center, $size: 20px, $style: normal, $weight: 400);
+    background-color: #F6F6F6;
+    padding: 10px;
+    cursor: pointer;
+
+    &__text {
+        @include mx.flex-center($direction: row, $justify: center, $align: center);
+        padding-right: 10px;
+    }
+}
+
+.startbutton {
+    @include mx.flex-center($direction: row, $justify: center, $align: center);
+    @include mx.red-rose($align: center, $size: 20px, $style: Bold, $weight: 700);
+    background-color: #f0ea6e;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: ease-in-out 0.1s;
+
+        .startbutton__img {
+            transform: rotate(-15deg);
+            transition: ease-in-out 0.1s;
+        }
+    }
+
+}

@@ -1,0 +1,130 @@
+.card {
+  height: 100px;
+  aspect-ratio: 1/1;
+  background-color: transparent;
+  border: none;
+}
+.card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all 300ms ease-in-out;
+}
+.card__face {
+  position: absolute;
+  inset: 0;
+  background-color: black;
+  backface-visibility: hidden;
+}
+.card__face--back {
+  transform: rotateY(180deg);
+  background-color: red;
+}
+.card.is-flipped .card__inner {
+  transform: rotateY(180deg);
+}
+
+.welcome_screen {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.welcome_screen__black {
+  background-color: #303131;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.welcome_screen__text {
+  text-align: left;
+}
+.welcome_screen__h2 {
+  font-family: "Almarai";
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 48px;
+  color: white;
+  margin: 0px;
+}
+.welcome_screen__h1 {
+  font-family: "Red rose";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 82px;
+  color: white;
+  margin: 0px;
+}
+
+.controler_button_positioning {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.controler_button_positioning__controler {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.controler_img {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+.play_button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+  cursor: pointer;
+}
+.play_button__square {
+  height: 100px;
+  width: 250px;
+  background-color: #f0ea6e;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+.play_button__square p {
+  font-family: "Red Rose";
+  font-weight: 700;
+  font-style: Bold;
+  font-size: 30px;
+  color: black;
+}
+.play_button__square .controler_img_small {
+  height: 35px;
+  width: 35px;
+}
+.play_button__square:hover .controler_img_small {
+  height: 35px;
+  width: 35px;
+  transform: rotate(-45deg);
+  transition: all 0.3s ease-in-out;
+}
+.play_button__square:hover .arrow_img_small {
+  transform: translateX(5px);
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  height: 100vh;
+  margin: 0 auto;
+}
