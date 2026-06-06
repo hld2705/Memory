@@ -20,27 +20,27 @@
 
     <aside>
         <h1 class="asideh1">Settings</h1>
-        <img src="./public/assets/Line 3.svg">
+        <img src="./assets/Line 3.svg">
         <section class="textsection">
             <div class="textsection__title">
-                <img src="./public/assets/palette.svg">
+                <img src="./assets/palette.svg">
                 <p>Game themes</p>
             </div>
-            <div class="textsection__selection" id="code_vibes_theme">
+            <div class="textsection__selection" data-type="theme" data-value="code_vibes_theme">
                 <div class="textsection__selector">
-                    <img src="./public/assets/selection_circle.svg">
+                    <img src="./assets/selection_circle.svg">
                     <p>Code vibes theme</p>
                 </div>
-                <div class="textsection__selector" id="gaming_theme">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="theme" data-value="gaming_theme">
+                    <img src="./assets/selection_circle.svg">
                     <p>Gaming theme</p>
                 </div>
-                <div class="textsection__selector" id="da_projects_theme">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="theme" data-value="da_projects_theme">
+                    <img src="./assets/selection_circle.svg">
                     <p>DA Projects theme</p>
                 </div>
-                <div class="textsection__selector" id="foods_theme">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="theme" data-value="foods_theme">
+                    <img src="./assets/selection_circle.svg">
                     <p>Foods theme</p>
                 </div>
             </div>
@@ -48,16 +48,16 @@
 
         <section class="textsection">
             <div class="textsection__title">
-                <img src="./public/assets/chess_pawn.svg">
+                <img src="./assets/chess_pawn.svg">
                 <p>Choose player</p>
             </div>
             <div class="textsection__selection">
-                <div class="textsection__selector" id="player_blue">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="player" data-value="player_blue">
+                    <img src="./assets/selection_circle.svg">
                     <p>Blue</p>
                 </div>
-                <div class="textsection__selector" id="player_orange">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="player" data-value="player_orange">
+                    <img src="./assets/selection_circle.svg">
                     <p>Orange</p>
                 </div>
             </div>
@@ -65,20 +65,20 @@
 
         <section class="textsection">
             <div class="textsection__title">
-                <img src="./public/assets/style.svg">
+                <img src="./assets/style.svg">
                 <p>Board size</p>
             </div>
             <div class="textsection__selection">
-                <div class="textsection__selector" id="16_cards">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="size" data-value="16_cards">
+                    <img src="./assets/selection_circle.svg">
                     <p>16 cards</p>
                 </div>
-                <div class="textsection__selector" id="24_cards">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="size" data-value="24_cards">
+                    <img src="./assets/selection_circle.svg">
                     <p>24 cards</p>
                 </div>
-                <div class="textsection__selector" id="36_cards">
-                    <img src="./public/assets/selection_circle.svg">
+                <div class="textsection__selector" data-type="size" data-value="36_cards">
+                    <img src="./assets/selection_circle.svg">
                     <p>36 cards</p>
                 </div>
             </div>
@@ -93,13 +93,13 @@
             <div class="selectedbar">
                 <div class="selectedbar__text">
                     <p>Game theme</p>
-                    <img src="./public/assets/Line 6.svg">
+                    <img src="./assets/Line 6.svg">
                     <p>Player</p>
-                    <img src="./public/assets/Line 6.svg">
+                    <img src="./assets/Line 6.svg">
                     <p>Board size</p>
                 </div>
                 <div class="startbutton">
-                    <img class="startbutton__img" src="./public/assets/smart_display.svg">
+                    <img class="startbutton__img" src="./assets/smart_display.svg">
                     <p>Start</p>
                 </div>
             </div>
@@ -107,7 +107,7 @@
     </aside>
 
     <script type="module" src="./src/main.ts"></script>
-    <script type="module" src="./src/menu.ts"></script>
+    <script type="module" src="./src/scripts/menu.ts"></script>
 </body>
 
 </html>
