@@ -33,13 +33,48 @@ section {
         @include mx.almarai($align: center, $size: 20px, $style: normal, $weight: 700);
         gap: 10px;
         padding-left: 20px;
+        white-space: nowrap;
     }
 
     &__selector {
-        @include mx.flex-center($direction: row, $justify: center, $align: center);
+        @include mx.flex-center($direction: row, $justify: left, $align: center);
         @include mx.almarai($align: center, $size: 20px, $style: normal, $weight: 400);
-        gap: 20px;
+        gap: 12px;
         cursor: pointer;
+    }
+}
+
+.selector {
+    &__circle {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        background-image: url("/assets/selection_circle.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    &__line {
+        width: 60px;
+        height: 20px;
+        flex-shrink: 0;
+
+        background-image: url("/assets/line3reverse.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+
+        opacity: 0;
+    }
+}
+
+.textsection__selector.active {
+
+    .selector__circle {
+        background-image: url("/assets/clicked_circle.svg");
+    }
+
+    .selector__line {
+        opacity: 1;
     }
 }
 
@@ -74,4 +109,35 @@ section {
         }
     }
 
+}
+
+.unclickedcircle {
+    background-image: url("/public/assets/selection_circle.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+    width: 273px;
+    flex-shrink: 0;
+}
+
+.clickedcircle {
+    background-image: url("/public/assets/clicked_circle.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+    height: 20px;
+    width: 20px;
+    flex-shrink: 0;
+}
+
+.selectedline {
+    background-image: url("/public/assets/line3reverse.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left;
+    flex-shrink: 0;
+}
+
+.d_none {
+    display: none;
 }
