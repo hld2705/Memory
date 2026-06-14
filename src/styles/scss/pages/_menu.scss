@@ -50,19 +50,15 @@ section {
         height: 20px;
         flex-shrink: 0;
         background-image: url("/assets/selection_circle.svg");
-        background-repeat: no-repeat;
-        background-size: contain;
+        @include mx.background($position: center);
     }
 
     &__line {
         width: 60px;
         height: 20px;
         flex-shrink: 0;
-
         background-image: url("/assets/line3reverse.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-
+        @include mx.background($position: center);
         opacity: 0;
     }
 }
@@ -113,18 +109,14 @@ section {
 
 .unclickedcircle {
     background-image: url("/public/assets/selection_circle.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
+    @include mx.background($position: left);
     width: 273px;
     flex-shrink: 0;
 }
 
 .clickedcircle {
     background-image: url("/public/assets/clicked_circle.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
+    @include mx.background($position: left);
     height: 20px;
     width: 20px;
     flex-shrink: 0;
@@ -132,12 +124,39 @@ section {
 
 .selectedline {
     background-image: url("/public/assets/line3reverse.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: left;
+    @include mx.background($position: left);
     flex-shrink: 0;
 }
 
 .d_none {
     display: none;
+}
+
+.choosen_settings{
+    @include mx.flex-center($direction: column, $justify: center, $align: center);
+    gap: 20px;
+}
+
+#game_play_bar {
+    max-height: auto;
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(.34,1.56,.64,1);
+
+    &.expanded {
+        transform: scaleX(1.05);
+    }
+}
+
+.selectedbarline{
+    background-image: url("/public/assets/Line 6.svg");
+    @include mx.background($position: center);
+    height: 40px;
+    width: 40px;
+}
+
+.selectedbarline.active{
+    background-image: url("/public/assets/Line 5.svg");
+    @include mx.background($position: center);
+    height: 40px;
+    width: 40px;
 }

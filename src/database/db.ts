@@ -1,3 +1,5 @@
+export type ThemeKey = keyof typeof themes;
+
 export const themes = {
     gaming_theme: {
         menu_picture: "./public/assets/cards/gamingtheme/gamingmenu.png",
@@ -24,7 +26,7 @@ export const themes = {
             "gamingsnakefrontface.png"
         ]
     },
-    food_theme: {
+    foods_theme: {
         menu_picture: "./public/assets/cards/foodstheme/foods.png",
         backside: "./public/assets/cards/foodstheme/backface/foodsbackfacecard.png",
         frontside_path: "./public/assets/cards/foodstheme/frontface/",
@@ -99,4 +101,18 @@ export const themes = {
             "codevuefrontface.png"
         ]
     }
+};
+
+export const displayNames = {
+    code_vibes_theme: "Code Vibes",
+    gaming_theme: "Game Theme",
+    da_projects_theme: "DA Projects",
+    foods_theme: "Foods",
+
+    player_blue: "Blue Player",
+    player_orange: "Orange Player",
+
+    "16_cards": "Board-16 Cards",
+    "24_cards": "Board-24 Cards",
+    "36_cards": "Board-36 Cards"
 };

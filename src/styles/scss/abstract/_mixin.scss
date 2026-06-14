@@ -20,3 +20,9 @@
     font-size: $size;
     text-align: $align;
 }
+
+@mixin background($position: center){
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: $position;
+}

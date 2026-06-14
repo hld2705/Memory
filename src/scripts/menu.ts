@@ -1,5 +1,7 @@
+import { themes, ThemeKey } from "../database/db";
+import { displayNames } from "../database/db";
 type State = {
-    theme: string | null;
+    theme: ThemeKey | null;
     player: string | null;
     size: string | null;
 };
@@ -10,6 +12,9 @@ const state: State = {
     size: null
 }
 
+/**
+ * Sets the "default" values upon page load
+ */
 document.addEventListener("DOMContentLoaded", () => {
     state.theme = "code_vibes_theme";
     state.player = "player_blue";
@@ -20,27 +25,62 @@ document.addEventListener("DOMContentLoaded", () => {
     updateUI("theme", defaultTheme);
     updateUI("player", defaultPlayer);
     updateUI("size", defaultSize);
+    renderPreviewImage();
+    gameBar();
 });
 
+/**
+ * Collects all of the values of the user chosen properties stores them and forwards it to other needed UI functions
+ */
 document.addEventListener("click", (e) => {
     const target = (e.target as HTMLElement).closest(".textsection__selector") as HTMLElement | null;
     if (!target) return;
-    const type = target.dataset.type;
+    const type = target.dataset.type as "theme" | "player" | "size" | undefined;
     const value = target.dataset.value;
     if (!type || !value) return;
     if (type === "theme" || type === "player" || type === "size") {
-        state[type] = value;
-        updateUI(type, target)
+        if (type === "theme") { state.theme = value as ThemeKey; } else { state[type] = value }
+        updateUI(type, target);
+        renderPreviewImage();
+        gameBar();
     }
 });
 
-function updateUI(type: string,selectedElement: HTMLElement) {
+
+/**
+ *  UI function that adds the centerdott classlist and the line upon selecting something from the menu
+ */
+function updateUI(type: string, selectedElement: HTMLElement) {
     document.querySelectorAll(`.textsection__selector[data-type="${type}"]`)
-        .forEach((element) => {element.classList.remove("active");});
+        .forEach((element) => { element.classList.remove("active"); });
     selectedElement.classList.add("active");
 }
 
-function playBar(type: string){
+/**
+ * Puts the needed background image of the selected game theme
+ */
+function renderPreviewImage() {
+    if (!state.theme || !state.player || !state.size) return;
+    const themeData = themes[state.theme];
+    document.getElementById("game_theme_image")!.innerHTML = `
+        <img src="${themeData.menu_picture}">`;
+}
 
-
+/**
+ * Updates the UI beneath the theme picture
+ */
+function gameBar(){
+    const bar = document.getElementById("game_play_bar");
+    if (!bar) return;
+    bar.classList.add("expanded");
+    if (bar.classList.contains("expanded")) {
+        document.getElementById("choosen_game_theme")!.textContent =
+            displayNames[state.theme as keyof typeof displayNames] ?? "Game theme";
+        document.getElementById("choosen_game_player")!.textContent =
+            displayNames[state.player as keyof typeof displayNames] ?? "Player";
+        document.getElementById("choosen_game_size")!.textContent =
+            displayNames[state.size as keyof typeof displayNames] ?? "Board size";}
+    document.querySelectorAll(".selectedbarline").forEach((element) => {
+        element.classList.add("active");
+    });
 }
