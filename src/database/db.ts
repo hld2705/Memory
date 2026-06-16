@@ -2,7 +2,7 @@ export type ThemeKey = keyof typeof themes;
 
 export const themes = {
     gaming_theme: {
-        menu_picture: "./public/assets/cards/gamingtheme/gamingmenu.png",
+        menu_picture: "./assets/cards/gamingtheme/gamingmenu.png",
         backside: "./public/assets/cards/gamingtheme/backface/gamingbackfacecard.png",
         frontside_path: "./public/assets/cards/gamingtheme/frontface/",
         frontside: [
@@ -27,7 +27,7 @@ export const themes = {
         ]
     },
     foods_theme: {
-        menu_picture: "./public/assets/cards/foodstheme/foods.png",
+        menu_picture: "./assets/cards/foodstheme/foods.png",
         backside: "./public/assets/cards/foodstheme/backface/foodsbackfacecard.png",
         frontside_path: "./public/assets/cards/foodstheme/frontface/",
         frontside: [
@@ -52,7 +52,7 @@ export const themes = {
         ]
     },
     da_projects_theme: {
-        menu_picture: "./public/assets/cards/daprojectstheme/daprojects.png",
+        menu_picture: "./assets/cards/daprojectstheme/daprojects.png",
         backside: "./public/assets/cards/daprojectstheme/backface/dabackfacecard.png",
         frontside_path: "./public/assets/cards/daprojectstheme/frontface/",
         frontside: [
@@ -77,7 +77,7 @@ export const themes = {
         ]
     },
     code_vibes_theme: {
-        menu_picture: "./public/assets/cards/codevibestheme/codemenu.png",
+        menu_picture: "./assets/cards/codevibestheme/codemenu.png",
         backside: "./public/assets/cards/codevibestheme/backface/codebackfacecard.png",
         frontside_path: "./public/assets/cards/codevibestheme/frontface/",
         frontside: [
@@ -115,4 +115,19 @@ export const displayNames = {
     "16_cards": "Board-16 Cards",
     "24_cards": "Board-24 Cards",
     "36_cards": "Board-36 Cards"
+};
+
+export const boardSizes = {
+    "16_cards": 8,
+    "24_cards": 12,
+    "36_cards": 18
+};
+
+export const players = {
+    player_blue: {
+        color: "#3B82F6"
+    },
+    player_orange: {
+        color: "#F97316"
+    }
 };

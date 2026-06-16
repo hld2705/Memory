@@ -1,12 +1,13 @@
 import { themes, ThemeKey } from "../database/db";
 import { displayNames } from "../database/db";
+
 type State = {
     theme: ThemeKey | null;
     player: string | null;
     size: string | null;
 };
 
-const state: State = {
+export const state: State = {
     theme: null,
     player: null,
     size: null
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateUI("player", defaultPlayer);
     updateUI("size", defaultSize);
     renderPreviewImage();
-    gameBar();
+
 });
 
 /**
@@ -42,7 +43,8 @@ document.addEventListener("click", (e) => {
         if (type === "theme") { state.theme = value as ThemeKey; } else { state[type] = value }
         updateUI(type, target);
         renderPreviewImage();
-        gameBar();
+        const bar = document.getElementById("game_play_bar");
+        if (bar?.classList.contains("expanded")) { gameBar(); }
     }
 });
 
@@ -62,25 +64,29 @@ function updateUI(type: string, selectedElement: HTMLElement) {
 function renderPreviewImage() {
     if (!state.theme || !state.player || !state.size) return;
     const themeData = themes[state.theme];
-    document.getElementById("game_theme_image")!.innerHTML = `
-        <img src="${themeData.menu_picture}">`;
+    document.getElementById("game_theme_image")!.innerHTML = `<img src="${themeData.menu_picture}">`;
 }
 
 /**
  * Updates the UI beneath the theme picture
  */
-function gameBar(){
+document.getElementById("game_play_bar")?.addEventListener("click", () => {
     const bar = document.getElementById("game_play_bar");
     if (!bar) return;
     bar.classList.add("expanded");
-    if (bar.classList.contains("expanded")) {
-        document.getElementById("choosen_game_theme")!.textContent =
-            displayNames[state.theme as keyof typeof displayNames] ?? "Game theme";
-        document.getElementById("choosen_game_player")!.textContent =
-            displayNames[state.player as keyof typeof displayNames] ?? "Player";
-        document.getElementById("choosen_game_size")!.textContent =
-            displayNames[state.size as keyof typeof displayNames] ?? "Board size";}
     document.querySelectorAll(".selectedbarline").forEach((element) => {
-        element.classList.add("active");
-    });
+        element.classList.add("active");})
+    gameBar();
+});
+
+/**
+ * Changes the textcontent of the game bar after clicking on it
+ */
+function gameBar() {
+    document.getElementById("choosen_game_theme")!.textContent =
+        displayNames[state.theme as keyof typeof displayNames] ?? "Game theme";
+    document.getElementById("choosen_game_player")!.textContent =
+        displayNames[state.player as keyof typeof displayNames] ?? "Player";
+    document.getElementById("choosen_game_size")!.textContent =
+        displayNames[state.size as keyof typeof displayNames] ?? "Board size";
 }
