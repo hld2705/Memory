@@ -1,10 +1,10 @@
-import { themes, ThemeKey } from "../database/db";
+import { themes, ThemeKey, SizeKey } from "../database/db";
 import { displayNames } from "../database/db";
 
-type State = {
+export type State = {
     theme: ThemeKey | null;
     player: string | null;
-    size: string | null;
+    size: SizeKey | null;
 };
 
 export const state: State = {
@@ -12,6 +12,15 @@ export const state: State = {
     player: null,
     size: null
 }
+
+export type Card = {
+    id: string;
+    pairId: number;
+    frontside: string;
+    backside: string;
+    isFlipped: boolean;
+    isMatched: boolean;
+};
 
 /**
  * Sets the "default" values upon page load

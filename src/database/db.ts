@@ -1,4 +1,6 @@
 export type ThemeKey = keyof typeof themes;
+export type SizeKey = keyof typeof boardSizes;
+
 
 export const themes = {
     gaming_theme: {
