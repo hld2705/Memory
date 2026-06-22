@@ -7,26 +7,116 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Red+Rose:wght@300..700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Red+Rose:wght@300..700&display=swap"
+        rel="stylesheet">
     <title>Memory</title>
-  <script type="module" crossorigin src="./assets/index-CAdAK6Qt.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-RUtcuhB9.css">
+  <script type="module" crossorigin src="./assets/index-B_tSVi2-.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CBK8bYC3.css">
 </head>
 
 <body>
 
-    <div id="welcoming_screen" class="welcome_screen"></div>
+    <!-- <div id="welcoming_screen" class="welcome_screen"></div> -->
+    <div id="game_screen" class="game_screen"></div>
 
-
-    <!-- <section id="field">
-        <button id="card" class="card">
-            <div class="card__inner">
-                <div class="card__face card__face--front"></div>
-                <div class="card__face card__face--back"></div>
+    <aside>
+        <h1 class="asideh1">Settings</h1>
+        <img src="./assets/Line 3.svg">
+        <section class="textsection">
+            <div class="textsection__title">
+                <img src="./assets/palette.svg">
+                <p>Game themes</p>
             </div>
-        </button>
-    </section> -->
-
+            <div class="textsection__selection">
+                <div class="textsection__selector" data-type="theme" data-value="code_vibes_theme">
+                    <div class="selector__circle"></div>
+                    <p>Code vibes theme</p>
+                    <div class="selector__line"></div>
+                </div>
+                <div class="textsection__selector" data-type="theme" data-value="gaming_theme">
+                    <div class="selector__circle"></div>
+                    <p>Gaming theme</p>
+                    <div class="selector__line"></div>
+                </div>
+                <div class="textsection__selector" data-type="theme" data-value="da_projects_theme">
+                    <div class="selector__circle"></div>
+                    <p>DA Projects theme</p>
+                    <div class="selector__line"></div>
+                </div>
+                <div class="textsection__selector" data-type="theme" data-value="foods_theme">
+                    <div class="selector__circle"></div>
+                    <p>Foods theme</p>
+                    <div class="selector__line"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="textsection">
+            <div class="textsection__title">
+                <img src="./assets/chess_pawn.svg">
+                <p>Choose player</p>
+            </div>
+            <div class="textsection__selection">
+                <div class="textsection__selector" data-type="player" data-value="player_blue">
+                    <div class="selector__circle"></div>
+                    <p>Blue</p>
+                    <div class="selector__line"></div>
+                </div>
+                <div class="textsection__selector" data-type="player" data-value="player_orange">
+                    <div class="selector__circle"></div>
+                    <p>Orange</p>
+                    <div class="selector__line"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="textsection">
+            <div class="textsection__title">
+                <img src="./assets/style.svg">
+                <p>Board size</p>
+            </div>
+            <div class="textsection__selection">
+                <div class="textsection__selector" data-type="size" data-value="16_cards">
+                    <div class="selector__circle"></div>
+                    <p>16 cards</p>
+                    <div class="selector__line"></div>
+                </div>
+                <div class="textsection__selector" data-type="size" data-value="24_cards">
+                    <div class="selector__circle"></div>
+                    <p>24 cards</p>
+                    <div class="selector__line"></div>
+                </div>
+                <div class="textsection__selector" data-type="size" data-value="36_cards">
+                    <div class="selector__circle"></div>
+                    <p>36 cards</p>
+                    <div class="selector__line"></div>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+    <aside id="choosen_game_side" class="choosen_settings">
+        <section id="game_theme_image">
+        </section>
+        <section id="game_play_bar">
+            <div class="selectedbar">
+                <div class="selectedbar__text">
+                    <p id="choosen_game_theme">Game theme</p>
+                    <div class="selectedbarline"></div>
+                    <p id="choosen_game_player">Player</p>
+                    <div class="selectedbarline"></div>
+                    <p id="choosen_game_size">Board size</p>
+                </div>
+                <div class="startbutton" id="startbutton">
+                    <img class="startbutton__img" src="./assets/smart_display.svg">
+                    <p>Start</p>
+                </div>
+            </div>
+        </section>
+    </aside>
+
+
 </body>
 
 </html>

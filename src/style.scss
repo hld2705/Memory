@@ -1,6 +1,8 @@
 @use './styles/scss/abstract/mixin' as mx;
 @use './styles/scss/components/main';
 @use './styles/scss/pages/menu';
+@use './styles/scss/pages/gamelayout';
+@use './styles/scss/themes/codevibestheme';
 
 body {
     height: 100vh;

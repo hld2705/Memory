@@ -1,29 +1,9 @@
 import { state, type State, Card } from "../scripts/menu";
 import { themes, boardSizes } from "../database/db";
-
-document.getElementById("startbutton")?.addEventListener("click", () => {
-
-})
-
-/**
- * Checks which settings did the user choose, and forwards it to the needed template
- */
-/*
-document.getElementById("startbutton")?.addEventListener("click", () => {
-    let codeVibesTheme = document.getElementById("code_vibes_theme");
-    let gamingTheme = document.getElementById("gaming_theme");
-    let daProjectsTheme = document.getElementById("da_projects_theme");
-    let foodsTheme = document.getElementById("foods_theme");
-    if (state.theme === "code_vibes_theme") {
-        codeVibesTheme = codeVibesThemeTemplate()
-    } else if (state.theme === "gaming_theme") {
-        gamingTheme = gamingThemeTemplate()
-    } else if (state.theme === "da_projects_theme") {
-        daProjectsTheme = daProjectsThemeTemplate()
-    } else if (state.theme === "foods_theme") {
-        foodsTheme = foodsThemeTemplate()
-    }
-});*/
+import { codeVibesThemeTemplate } from "../templates/game_screen";
+import { gamingThemeTemplate } from "../templates/game_screen";
+import { daProjectsThemeTemplate } from "../templates/game_screen";
+import { foodsThemeTemplate } from "../templates/game_screen";
 
 function generateGameFromState(state: State) {
     if (!state.theme || !state.size) return;
@@ -71,3 +51,17 @@ function createCardsFromPairs(pairs: string[], frontside_path: string, backside:
 function shuffleCards(cards: Card[]) {
     return [...cards].sort(() => Math.random() - 0.5);
 }
+
+document.getElementById("startbutton")?.addEventListener("click", () => {
+    const cards = generateGameFromState(state);
+    if (!cards) return;
+    const game = document.getElementById("game_screen");
+    if (state.theme === "code_vibes_theme") {
+        game!.innerHTML += codeVibesThemeTemplate(cards);}
+    if (state.theme === "gaming_theme") {
+        game!.innerHTML += gamingThemeTemplate(cards);}
+    if(state.theme === "da_projects_theme"){
+        game!.innerHTML += daProjectsThemeTemplate(cards);}
+    if(state.theme === "foods_theme"){
+        game!.innerHTML += foodsThemeTemplate(cards);}
+});

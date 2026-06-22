@@ -45,16 +45,17 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("click", (e) => {
     const target = (e.target as HTMLElement).closest(".textsection__selector") as HTMLElement | null;
     if (!target) return;
-    const type = target.dataset.type as "theme" | "player" | "size" | undefined;
+    const type = target.dataset.type as "theme" | "player" | "size";
     const value = target.dataset.value;
     if (!type || !value) return;
     if (type === "theme" || type === "player" || type === "size") {
-        if (type === "theme") { state.theme = value as ThemeKey; } else { state[type] = value }
+        if (type === "theme") { state.theme = value as ThemeKey; }
+        if (type === "player") { state.player = value; }
+        if (type === "size") { state.size = value as "16_cards" | "24_cards" | "36_cards"; }
         updateUI(type, target);
         renderPreviewImage();
         const bar = document.getElementById("game_play_bar");
-        if (bar?.classList.contains("expanded")) { gameBar(); }
-    }
+        if (bar?.classList.contains("expanded")) { gameBar(); }}
 });
 
 
@@ -84,7 +85,8 @@ document.getElementById("game_play_bar")?.addEventListener("click", () => {
     if (!bar) return;
     bar.classList.add("expanded");
     document.querySelectorAll(".selectedbarline").forEach((element) => {
-        element.classList.add("active");})
+        element.classList.add("active");
+    })
     gameBar();
 });
 
