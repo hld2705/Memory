@@ -17,7 +17,7 @@ export function codeVibesThemeTemplate(cards: Card[]): string {
     return `
      <section class="gameoverlay">
     <div class="codevibestheme">
-        <header>
+        <header class="headercodevibestheme">
             <div class="playercountercodevibes">
                 <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_blue_code_vibes.svg"
                 <p></p>
@@ -44,7 +44,7 @@ export function gamingThemeTemplate(cards: Card[]): string {
     return `
      <section class="gameoverlay">
      <div class="gamingtheme">
-        <header>
+        <header class="gamingthemeheader">
             <div class="playercounter">
                 <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
                 <p></p>
@@ -69,22 +69,54 @@ export function gamingThemeTemplate(cards: Card[]): string {
 
 export function daProjectsThemeTemplate(cards: Card[]): string {
     return `
-    <section class="gameoverlay">
-    <div>
-        <header> 
+     <section class="gameoverlay">
+     <div class="daprojectstheme">
+        <header class="headerdaprojectstheme">
+            <div class="playercounterdaprojects">
+                <img class="playercounterdaprojects__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
+                <p></p>
+                <img class="playercounterdaprojects__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
+                <p></p>
+            </div>
+            <div class="currentplayerdaprojects">
+                <h2>Current player: <span id="current_player"></span></h2>
+            </div>
+            <div class="exitgamedaprojects">
+                <img class="exitgamedaprojects__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
+                <p>Exit game</p>
+            </div>
         </header>
-    </div>
-    </section>
+        <div class="cardssection">
+        ${cardsTemplate(cards)}
+        </div>
+     </div>
+     </section>   
     `
 }
 
 export function foodsThemeTemplate(cards: Card[]): string {
     return `
-    <section class="gameoverlay">
-    <div>
-        <header>  
+     <section class="gameoverlay">
+     <div class="foodstheme">
+        <header class="headerfoodstheme">
+            <div class="playercounterfoodstheme">
+                <img class="playercounterfoodstheme__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
+                <p></p>
+                <img class="playercounterfoodstheme__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
+                <p></p>
+            </div>
+            <div class="currentplayerfoodstheme">
+                <h2>Current player: <span id="current_player"></span></h2>
+            </div>
+            <div class="exitgamefoodstheme">
+                <img class="exitgamefoodstheme__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
+                <p>Exit game</p>
+            </div>
         </header>
-    </div>
-    </section>
+        <div class="cardssection">
+        ${cardsTemplate(cards)}
+        </div>
+     </div>
+     </section>   
     `
 }

@@ -9,3 +9,13 @@
     text-align: center;
     z-index: 10;
 }
+
+
+.cardssection{
+    @include mx.flex-center(row);
+    width: 100%;
+    flex-wrap: wrap;
+    flex: 1;
+    overflow-y: auto;
+    gap: 32px;
+}

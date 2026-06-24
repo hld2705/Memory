@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-header {
+.gamingthemeheader {
     height: 100px;
     width: auto;
     background-color: #FD96C933;
@@ -67,12 +67,4 @@ header {
         font-size: 20px;
         color: white;
     }
-}
-
-.cardssection{
-    @include mx.flex-center(row);
-    width: 100%;
-    flex-wrap: wrap;
-    flex: 1;
-    overflow-y: auto;
 }
