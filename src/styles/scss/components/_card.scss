@@ -4,6 +4,7 @@
     aspect-ratio: 1/1;
     background-color: transparent;
     border: none;
+    cursor: pointer;
 
     &__inner {
         position: relative;
@@ -13,16 +14,18 @@
         transition: all 300ms ease-in-out;
     }
 
+     &__face--front {
+        transform: rotateY(180deg);
+    }
+
+    &__face--back {
+        transform: rotateY(0deg);
+    }
+
     &__face {
         position: absolute;
         inset: 0;
-        background-color: black;
         backface-visibility: hidden;
-
-        &--back {
-            transform: rotateY(180deg);
-            background-color: red;
-        }
     }
 
     &.is-flipped .card__inner {

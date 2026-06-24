@@ -48,20 +48,41 @@ function createCardsFromPairs(pairs: string[], frontside_path: string, backside:
     ]);
 }
 
+/**
+ * Shuffels the cards so that we get all of the needed pairs
+ */
 function shuffleCards(cards: Card[]) {
     return [...cards].sort(() => Math.random() - 0.5);
 }
 
+/**
+ * Eventlistener on the startbutton, depending on what the user has chosen the template will be loaded,
+ */
 document.getElementById("startbutton")?.addEventListener("click", () => {
     const cards = generateGameFromState(state);
     if (!cards) return;
     const game = document.getElementById("game_screen");
     if (state.theme === "code_vibes_theme") {
-        game!.innerHTML += codeVibesThemeTemplate(cards);}
+        game!.innerHTML += codeVibesThemeTemplate(cards);
+    }
     if (state.theme === "gaming_theme") {
-        game!.innerHTML += gamingThemeTemplate(cards);}
-    if(state.theme === "da_projects_theme"){
-        game!.innerHTML += daProjectsThemeTemplate(cards);}
-    if(state.theme === "foods_theme"){
-        game!.innerHTML += foodsThemeTemplate(cards);}
+        game!.innerHTML += gamingThemeTemplate(cards);
+    }
+    if (state.theme === "da_projects_theme") {
+        game!.innerHTML += daProjectsThemeTemplate(cards);
+    }
+    if (state.theme === "foods_theme") {
+        game!.innerHTML += foodsThemeTemplate(cards);
+    }
+});
+
+document.addEventListener("click", (e) => {
+
+    const card = (e.target as HTMLElement)
+        .closest(".card");
+
+    if (!card) return;
+
+    card.classList.toggle("is-flipped");
+
 });

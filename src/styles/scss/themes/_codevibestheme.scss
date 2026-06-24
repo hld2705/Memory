@@ -1,16 +1,69 @@
 @use '../abstract/mixin' as mx;
 
-.codevibestheme{
+.codevibestheme {
     @include mx.flex-center(column);
-    background-color: #294f60;
+    background-color: #303131;
     height: 100vh;
     width: 100%;
 }
 
-header{
-    height: 100px;
+
+header {
+    margin-top: 20px;
+    height: 62px;
     width: auto;
-    background-color: #FD96C933;
-    border-radius: 10px;
+    background-color: #303131;
     @include mx.flex-center(row);
+    gap: 50px;
+}
+
+.playercountercodevibes {
+    @include mx.flex-center(row);
+    height: 62px;
+    gap: 40px;
+    opacity: 1;
+    background-color: #415652;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    &__icon {
+        width: 24px;
+        height: 20px;
+
+    }
+}
+
+.currentplayercodevibes {
+    @include mx.flex-center(row);
+
+    h2 {
+        font-family: "Red Rose";
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 26px;
+        color: #FFFFFF
+    }
+}
+
+.exitgamecodevibes {
+    height: 62px;
+    @include mx.flex-center(row);
+    background: #86E9D633;
+    cursor: pointer;
+    border: 1px solid #4DD5BC;
+    padding: 6px 4px 6px 4px;
+    gap: 10px;
+
+    &__icon {
+        height: 30px;
+        width: 30px;
+    }
+
+    p {
+        font-family: "Red Rose";
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 24px;
+        color: #FFFFFF;
+    }
 }
