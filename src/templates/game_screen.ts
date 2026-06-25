@@ -1,4 +1,5 @@
 import type { Card } from "../scripts/menu";
+import type { PlayerState } from "../scripts/gamegenerator";
 
 export function cardsTemplate(cards: Card[]): string {
     return cards.map((card) => {
@@ -13,19 +14,27 @@ export function cardsTemplate(cards: Card[]): string {
     }).join("");
 }
 
-export function codeVibesThemeTemplate(cards: Card[]): string {
+export function playerStateCounterTemplate(playerState: PlayerState): string {
+    return `
+        <p>${playerState.playerOneScore}</p>
+        <p>${playerState.playerTwoScore}</p>
+        <p>${playerState.currentPlayer}</p>
+    `;
+}
+
+export function codeVibesThemeTemplate(cards: Card[], playerState: PlayerState): string {
     return `
      <section class="gameoverlay">
     <div class="codevibestheme">
         <header class="headercodevibestheme">
             <div class="playercountercodevibes">
-                <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_blue_code_vibes.svg"
-                <p></p>
-                <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_orange_code_vibes.svg"
-                <p></p>
+                <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_blue_code_vibes.svg">
+                <p data-score="player_one">${playerState.playerOneScore}</p>
+                <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_orange_code_vibes.svg">
+                <p data-score="player_two">${playerState.playerTwoScore}</p>
             </div>
                 <div class="currentplayercodevibes">
-                    <h2>Current player: <span id="current_player"></span></h2>
+                    <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
                 </div>
                     <div class="exitgamecodevibes">
                         <img class="exitgame__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
@@ -40,19 +49,19 @@ export function codeVibesThemeTemplate(cards: Card[]): string {
     `
 }
 
-export function gamingThemeTemplate(cards: Card[]): string {
+export function gamingThemeTemplate(cards: Card[], playerState: PlayerState): string {
     return `
      <section class="gameoverlay">
      <div class="gamingtheme">
         <header class="gamingthemeheader">
             <div class="playercounter">
                 <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
-                <p></p>
+                <p data-score="player_one">${playerState.playerOneScore}</p>
                 <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
-                <p></p>
+                <p data-score="player_two">${playerState.playerTwoScore}</p>
             </div>
             <div class="currentplayer">
-                <h2>Current player: <span id="current_player"></span></h2>
+                <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
             </div>
             <div class="exitgame">
                 <img class="exitgame__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
@@ -67,19 +76,19 @@ export function gamingThemeTemplate(cards: Card[]): string {
     `
 }
 
-export function daProjectsThemeTemplate(cards: Card[]): string {
+export function daProjectsThemeTemplate(cards: Card[], playerState: PlayerState): string {
     return `
      <section class="gameoverlay">
      <div class="daprojectstheme">
         <header class="headerdaprojectstheme">
             <div class="playercounterdaprojects">
                 <img class="playercounterdaprojects__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
-                <p></p>
+                <p data-score="player_one">${playerState.playerOneScore}</p>
                 <img class="playercounterdaprojects__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
-                <p></p>
+                <p data-score="player_two">${playerState.playerTwoScore}</p>
             </div>
             <div class="currentplayerdaprojects">
-                <h2>Current player: <span id="current_player"></span></h2>
+                <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
             </div>
             <div class="exitgamedaprojects">
                 <img class="exitgamedaprojects__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
@@ -94,19 +103,19 @@ export function daProjectsThemeTemplate(cards: Card[]): string {
     `
 }
 
-export function foodsThemeTemplate(cards: Card[]): string {
+export function foodsThemeTemplate(cards: Card[], playerState: PlayerState): string {
     return `
      <section class="gameoverlay">
      <div class="foodstheme">
         <header class="headerfoodstheme">
             <div class="playercounterfoodstheme">
                 <img class="playercounterfoodstheme__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
-                <p></p>
+                <p data-score="player_one">${playerState.playerOneScore}</p>
                 <img class="playercounterfoodstheme__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
-                <p></p>
+                <p data-score="player_two">${playerState.playerTwoScore}</p>
             </div>
             <div class="currentplayerfoodstheme">
-                <h2>Current player: <span id="current_player"></span></h2>
+                <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
             </div>
             <div class="exitgamefoodstheme">
                 <img class="exitgamefoodstheme__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
