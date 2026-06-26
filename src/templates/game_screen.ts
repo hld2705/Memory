@@ -29,9 +29,9 @@ export function codeVibesThemeTemplate(cards: Card[], playerState: PlayerState):
         <header class="headercodevibestheme">
             <div class="playercountercodevibes">
                 <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_blue_code_vibes.svg">
-                <p data-score="player_one">${playerState.playerOneScore}</p>
+                <p data-score="player_one" class="playercountercodevibes__blue">Blue ${playerState.playerOneScore}</p>
                 <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_orange_code_vibes.svg">
-                <p data-score="player_two">${playerState.playerTwoScore}</p>
+                <p data-score="player_two" class="playercountercodevibes__orange">Orange ${playerState.playerTwoScore}</p>
             </div>
                 <div class="currentplayercodevibes">
                     <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
@@ -56,9 +56,9 @@ export function gamingThemeTemplate(cards: Card[], playerState: PlayerState): st
         <header class="gamingthemeheader">
             <div class="playercounter">
                 <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
-                <p data-score="player_one">${playerState.playerOneScore}</p>
+                <p data-score="player_one" class="playercounter__orange">${playerState.playerOneScore}</p>
                 <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
-                <p data-score="player_two">${playerState.playerTwoScore}</p>
+                <p data-score="player_two" class="playercounter__blue">${playerState.playerTwoScore}</p>
             </div>
             <div class="currentplayer">
                 <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
@@ -83,9 +83,9 @@ export function daProjectsThemeTemplate(cards: Card[], playerState: PlayerState)
         <header class="headerdaprojectstheme">
             <div class="playercounterdaprojects">
                 <img class="playercounterdaprojects__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
-                <p data-score="player_one">${playerState.playerOneScore}</p>
+                <p data-score="player_one" class="playercounterdaprojects__blue">${playerState.playerOneScore}</p>
                 <img class="playercounterdaprojects__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
-                <p data-score="player_two">${playerState.playerTwoScore}</p>
+                <p data-score="player_two" class="playercounterdaprojects__orange">${playerState.playerTwoScore}</p>
             </div>
             <div class="currentplayerdaprojects">
                 <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
@@ -110,9 +110,9 @@ export function foodsThemeTemplate(cards: Card[], playerState: PlayerState): str
         <header class="headerfoodstheme">
             <div class="playercounterfoodstheme">
                 <img class="playercounterfoodstheme__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
-                <p data-score="player_one">${playerState.playerOneScore}</p>
+                <p data-score="player_one" class="playercounterfoodstheme__blue">${playerState.playerOneScore}</p>
                 <img class="playercounterfoodstheme__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
-                <p data-score="player_two">${playerState.playerTwoScore}</p>
+                <p data-score="player_two" class="playercounterfoodstheme__orange">${playerState.playerTwoScore}</p>
             </div>
             <div class="currentplayerfoodstheme">
                 <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>

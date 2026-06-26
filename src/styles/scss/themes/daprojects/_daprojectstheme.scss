@@ -1,39 +1,56 @@
-@use '../abstract/mixin' as mx;
+@use '../../abstract/mixin' as mx;
 
-.foodstheme {
+.daprojectstheme {
     @include mx.flex-center(column);
     background-color: #ffffff;
     height: 100vh;
     width: 100%;
 }
 
-.headerfoodstheme {
+.headerdaprojectstheme {
     margin-top: 20px;
     height: 102px;
     width: auto;
-    background-color: #F0E5D9;
+    background-color: #f0f3f4;
     @include mx.flex-center(row);
     gap: 50px;
 }
 
-.playercounterfoodstheme {
+.playercounterdaprojects {
     @include mx.flex-center(row);
     height: 62px;
-    gap: 40px;
+    gap: 20px;
     opacity: 1;
     background-color: #fff;
     border-radius: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    margin-left: 10px;
 
     &__icon {
         width: 24px;
         height: 20px;
 
     }
+
+    &__blue {
+        font-family: Figtree;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 20px;
+        color: #097FC5;
+    }
+
+    &__orange {
+        font-family: Figtree;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 20px;
+        color: #EA6900;
+    }
 }
 
-.currentplayerfoodstheme {
+.currentplayerdaprojects {
     @include mx.flex-center(row);
 
     h2 {
@@ -45,7 +62,7 @@
     }
 }
 
-.exitgamefoodstheme {
+.exitgamedaprojects {
     height: 54px;
     @include mx.flex-center(row);
     background: #BFE5F2;
@@ -53,7 +70,10 @@
     padding: 6px 4px 6px 4px;
     gap: 10px;
     border-radius: 10px;
-
+    margin-right: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
     &__icon {
         height: 30px;
         width: 30px;

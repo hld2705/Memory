@@ -1,4 +1,4 @@
-@use '../abstract/mixin' as mx;
+@use '../../abstract/mixin' as mx;
 
 .gamingtheme {
     @include mx.flex-center(column);
@@ -13,7 +13,7 @@
     background-color: #FD96C933;
     border-radius: 10px;
     @include mx.flex-center(row);
-    gap:50px;
+    gap: 50px;
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -25,13 +25,29 @@
     border-radius: 10px;
     padding-right: 16px;
     padding-left: 16px;
-    gap: 40px;
+    gap: 20px;
     opacity: 1;
     background-color: #FFFFFF;
 
     &__icon {
         width: 22px;
         height: 28px;
+    }
+
+    &__blue {
+        font-family: Orbitron;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 30px;
+        color: #097FC5;
+    }
+
+    &__orange {
+        font-family: Orbitron;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 30px;
+        color: #EA6900;
     }
 }
 

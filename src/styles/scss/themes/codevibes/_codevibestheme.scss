@@ -1,4 +1,4 @@
-@use '../abstract/mixin' as mx;
+@use '../../abstract/mixin' as mx;
 
 .codevibestheme {
     @include mx.flex-center(column);
@@ -20,7 +20,7 @@
 .playercountercodevibes {
     @include mx.flex-center(row);
     height: 62px;
-    gap: 40px;
+    gap: 20px;
     opacity: 1;
     background-color: #415652;
     padding-left: 10px;
@@ -30,6 +30,22 @@
         width: 24px;
         height: 20px;
 
+    };
+
+    &__blue {
+        font-family: "Red Rose";
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 24px;
+        color: #2BB1FF;
+    };
+
+    &__orange{
+        font-family: "Red Rose";
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 24px;
+        color: #F58E39;
     }
 }
 

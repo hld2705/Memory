@@ -117,15 +117,16 @@ function renderPlayerState(playerState: PlayerState) {
     const playerTwoScore = document.querySelector('[data-score="player_two"]');
     const currentPlayer = document.querySelector('[data-current-player]');
     if (playerOneScore) {
-        playerOneScore.textContent = String(playerState.playerOneScore);
+        playerOneScore.textContent = String(playerState.playerOneScore) ;
     }
     if (playerTwoScore) {
-        playerTwoScore.textContent = String(playerState.playerTwoScore);
+        playerTwoScore.textContent = String(playerState.playerTwoScore) ;
     }
     if (currentPlayer) {
         currentPlayer.textContent = String(playerState.currentPlayer);
     }
 }
+
 /**
  * Eventlistener for flipping the cards, also forwards the checking of the state of matched pairs, and couting of the players
  */
