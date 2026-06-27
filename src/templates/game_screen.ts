@@ -1,5 +1,5 @@
 import type { Card } from "../scripts/menu";
-import type { PlayerState } from "../scripts/gamegenerator";
+import type { PlayerState } from "../scripts/playerstate";
 
 export function cardsTemplate(cards: Card[]): string {
     return cards.map((card) => {
@@ -63,7 +63,7 @@ export function gamingThemeTemplate(cards: Card[], playerState: PlayerState): st
             <div class="currentplayer">
                 <h2>Current player: <span data-current-player>${playerState.currentPlayer}</span></h2>
             </div>
-            <div class="exitgame">
+            <div class="exitgamegamingtheme">
                 <img class="exitgame__icon" src="../assets/cards/codevibestheme/exit_icon.svg">
                 <p>Exit game</p>
             </div>

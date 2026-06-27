@@ -73,7 +73,7 @@
     margin-right: 10px;
     padding-left: 10px;
     padding-right: 10px;
-    
+
     &__icon {
         height: 30px;
         width: 30px;
@@ -85,5 +85,76 @@
         font-style: Bold;
         font-size: 20px;
         color: #1E7594;
+    }
+}
+
+
+.endgamedaprojects {
+    @include mx.flex-center(column);
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+
+    &__window {
+        background-color: #FFFFFF;
+        @include mx.flex-center(column);
+        height: 270px;
+        width: 540px;
+        border-radius: 20px;
+        h1 {
+            font-family: "Figtree";
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 28px;
+            color: #294F60;
+        }
+    }
+}
+
+.endgamedaprojectsbuttons {
+    @include mx.flex-center(row);
+    gap: 24px;
+
+    &__blue {
+        @include mx.flex-center(column);
+        padding-top: 12px;
+        padding-right: 20px;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        background-color: #BFE5F2;
+        box-shadow: 3px 3px 5px 0px #2F2E2E33;
+
+        p {
+            font-family: "Figtree";
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 16px;
+            color: #1E7594;
+        }
+    }
+
+    &__red {
+        cursor: pointer;
+        gap: 10px;
+        opacity: 1;
+        padding-top: 12px;
+        padding-right: 20px;
+        padding-bottom: 12px;
+        padding-left: 20px;
+        border-radius: 10px;
+        background-color: #FD8A81;
+        box-shadow: 3px 3px 5px 0px #2F2E2E33;
+
+        p {
+            font-family: "Figtree";
+            font-weight: 700;
+            font-style: Bold;
+            font-size: 16px;
+            color: #fff;
+        }
     }
 }

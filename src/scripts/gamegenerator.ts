@@ -4,24 +4,11 @@ import { codeVibesThemeTemplate } from "../templates/game_screen";
 import { gamingThemeTemplate } from "../templates/game_screen";
 import { daProjectsThemeTemplate } from "../templates/game_screen";
 import { foodsThemeTemplate } from "../templates/game_screen";
-
-export const playerState: PlayerState = {
-    currentPlayer: 1,
-    playerOneScore: 0,
-    playerTwoScore: 0,
-    flippedCards: [],
-    locked: false,
-    matchedPairs: 0
-}
-
-export type PlayerState = {
-    currentPlayer: number;
-    playerOneScore: number;
-    playerTwoScore: number;
-    flippedCards: HTMLElement[];
-    locked: boolean;
-    matchedPairs: number;
-}
+import { playerState, type PlayerState } from "./playerstate";
+import { renderCodeVibesPlayerState, initCodeVibesTheme } from "../themes/codevibes/codevibestheme";
+import { renderGamingPlayerState, initGameVibesTheme } from "../themes/gaming/gamingtheme";
+import { initDaProjectsTheme } from "../themes/daprojects/daprojectstheme";
+import { initFoodsProjectsTheme } from "../themes/foods/foodstheme"
 
 /**
  * 
@@ -97,33 +84,19 @@ function startGame(state: State, playerState: PlayerState){
     const game = document.getElementById("game_screen");
     if (state.theme === "code_vibes_theme") {
         game!.innerHTML = codeVibesThemeTemplate(cards, playerState);
+        initCodeVibesTheme();
     }
     if (state.theme === "gaming_theme") {
         game!.innerHTML = gamingThemeTemplate(cards, playerState);
+        initGameVibesTheme();
     }
     if (state.theme === "da_projects_theme") {
         game!.innerHTML = daProjectsThemeTemplate(cards, playerState);
+        initDaProjectsTheme();
     }
     if (state.theme === "foods_theme") {
         game!.innerHTML = foodsThemeTemplate(cards, playerState);
-    }
-}
-
-/**
- * Function that rerenders the playerstates(score, and position)
- */
-function renderPlayerState(playerState: PlayerState) {
-    const playerOneScore = document.querySelector('[data-score="player_one"]');
-    const playerTwoScore = document.querySelector('[data-score="player_two"]');
-    const currentPlayer = document.querySelector('[data-current-player]');
-    if (playerOneScore) {
-        playerOneScore.textContent = String(playerState.playerOneScore) ;
-    }
-    if (playerTwoScore) {
-        playerTwoScore.textContent = String(playerState.playerTwoScore) ;
-    }
-    if (currentPlayer) {
-        currentPlayer.textContent = String(playerState.currentPlayer);
+        initFoodsProjectsTheme();
     }
 }
 
@@ -166,16 +139,33 @@ function checkPair() {
     }
 }
 
+/**
+ * Updates the theme UI depending on the user preferences
+ */
+function updatePlayerUI() {
+    if(state.theme === "code_vibes_theme"){
+        renderCodeVibesPlayerState(playerState);
+    }
+    if(state.theme === "gaming_theme"){
+        renderGamingPlayerState(playerState);
+    }
+}
+
+/**
+ * Function that switches players according to matched or mistmatched pairs
+ */
 function changePlayer() {
     if (playerState.currentPlayer === 1) {
         playerState.currentPlayer = 2;
     } else {
         playerState.currentPlayer = 1;
     }
-    renderPlayerState(playerState);
+    updatePlayerUI();
 }
 
-
+/**
+ * Function that returns the correct values of mathed pairs to the user it has actually matched
+ */
 function updateScore() {
      if(playerState.currentPlayer === 1){
         playerState.playerOneScore += 1;
@@ -184,5 +174,5 @@ function updateScore() {
         playerState.playerTwoScore += 1;
         playerState.matchedPairs +=1;
     }
-    renderPlayerState(playerState);
+    updatePlayerUI();
 }
