@@ -28,7 +28,7 @@
     margin-left: 10px;
 
     &__icon {
-        width: 30px;
+        width: 25px;
         height: 24px;
     }
 
@@ -51,6 +51,7 @@
 
 .currentplayerfoodstheme {
     @include mx.flex-center(row);
+    gap: 20px;
 
     h2 {
         font-family: Figtree;

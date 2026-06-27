@@ -12,3 +12,9 @@ export function endGameCodeVibesTemplate(){
                     </div>
             </div>`
 }
+
+export function winLoseDrawCodeVibesTemplate(){
+    return `<div>
+
+            </div>`
+}

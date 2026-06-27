@@ -55,7 +55,8 @@
 
 .currentplayercodevibes {
     @include mx.flex-center(row);
-
+    gap: 20px;
+    
     h2 {
         font-family: "Red Rose";
         font-weight: 400;

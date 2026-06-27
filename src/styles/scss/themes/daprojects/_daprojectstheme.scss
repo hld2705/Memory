@@ -28,8 +28,8 @@
     margin-left: 10px;
 
     &__icon {
-        width: 24px;
-        height: 20px;
+        width: 27px;
+        height: 27px;
 
     }
 
@@ -37,7 +37,7 @@
         font-family: Figtree;
         font-weight: 700;
         font-style: Bold;
-        font-size: 20px;
+        font-size: 25px;
         color: #097FC5;
     }
 
@@ -45,20 +45,25 @@
         font-family: Figtree;
         font-weight: 700;
         font-style: Bold;
-        font-size: 20px;
+        font-size: 25px;
         color: #EA6900;
     }
 }
 
 .currentplayerdaprojects {
     @include mx.flex-center(row);
-
+    gap: 20px;
     h2 {
         font-family: Figtree;
         font-weight: 700;
         font-style: Bold;
         font-size: 32px;
         color: #1E7594;
+    }
+
+    &__icon{
+        height: 30px;
+        width: 30px;
     }
 }
 

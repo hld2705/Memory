@@ -4,7 +4,8 @@ export const playerState: PlayerState = {
     playerTwoScore: 0,
     flippedCards: [],
     locked: false,
-    matchedPairs: 0
+    matchedPairs: 0,
+    totalPairs: 0
 }
 
 export type PlayerState = {
@@ -14,4 +15,5 @@ export type PlayerState = {
     flippedCards: HTMLElement[];
     locked: boolean;
     matchedPairs: number;
+    totalPairs: number;
 }

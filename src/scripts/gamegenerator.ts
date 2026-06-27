@@ -7,8 +7,8 @@ import { foodsThemeTemplate } from "../templates/game_screen";
 import { playerState, type PlayerState } from "./playerstate";
 import { renderCodeVibesPlayerState, initCodeVibesTheme } from "../themes/codevibes/codevibestheme";
 import { renderGamingPlayerState, initGameVibesTheme } from "../themes/gaming/gamingtheme";
-import { initDaProjectsTheme } from "../themes/daprojects/daprojectstheme";
-import { initFoodsProjectsTheme } from "../themes/foods/foodstheme"
+import { initDaProjectsTheme, renderDaProjectsPlayerState } from "../themes/daprojects/daprojectstheme";
+import { initFoodsProjectsTheme, renderFoodsPlayerState } from "../themes/foods/foodstheme"
 
 /**
  * 
@@ -32,6 +32,7 @@ function generateGameFromState(state: State, playerState: PlayerState) {
 function calculatePairsFromState(state: State, playerState: PlayerState) {
     if (!state.theme || !state.size) return [];
     const numberOfPairs = boardSizes[state.size];
+    playerState.totalPairs = numberOfPairs;
     const themeData = themes[state.theme];
     return themeData.frontside.slice(0, numberOfPairs);
 }
@@ -46,22 +47,15 @@ function calculatePairsFromState(state: State, playerState: PlayerState) {
 function createCardsFromPairs(pairs: string[], frontside_path: string, backside: string) {
     return pairs.flatMap((item, index) => [
         {
-            id: `${index}-a`,
-            pairId: index,
-            frontside: frontside_path + item,
-            backside: backside,
+            id: `${index}-a`, pairId: index,frontside: frontside_path + item,backside: backside,
             isFlipped: false,
             isMatched: false,
         },
         {
-            id: `${index}-b`,
-            pairId: index,
-            frontside: frontside_path + item,
-            backside: backside,
+            id: `${index}-b`,pairId: index, frontside: frontside_path + item, backside: backside,
             isFlipped: false,
             isMatched: false,
-        }
-    ]);
+        }]);
 }
 
 /**
@@ -148,6 +142,12 @@ function updatePlayerUI() {
     }
     if(state.theme === "gaming_theme"){
         renderGamingPlayerState(playerState);
+    }
+    if (state.theme === "da_projects_theme") {
+        renderDaProjectsPlayerState(playerState);
+    }
+    if(state.theme === "foods_theme"){
+        renderFoodsPlayerState(playerState);
     }
 }
 
