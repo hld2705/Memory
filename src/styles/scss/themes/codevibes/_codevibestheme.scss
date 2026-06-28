@@ -56,7 +56,7 @@
 .currentplayercodevibes {
     @include mx.flex-center(row);
     gap: 20px;
-    
+
     h2 {
         font-family: "Red Rose";
         font-weight: 400;
@@ -115,7 +115,7 @@
 .endgamecodevibesbuttons {
     @include mx.flex-center(row);
     gap: 24px;
-    
+
     &__green {
         @include mx.flex-center(column);
         height: 57px;
@@ -126,6 +126,7 @@
         padding-left: 24px;
         background-color: #66CFBC;
         cursor: pointer;
+
         p {
             font-family: "Red Rose";
             font-weight: 700;
@@ -147,12 +148,58 @@
         border: 2px solid #4DD5BC;
         background-color: #FFFFFF;
 
-        p{
+        p {
             font-family: "Red Rose";
             font-weight: 700;
             font-style: Bold;
             font-size: 20px;
             color: #4DD5BC;
         }
+    }
+}
+
+.winoverlaycodevibes {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #303131;
+
+    h3 {
+        font-family: "Red Rose";
+        font-weight: 400;
+        font-style: Regular;
+        font-size: 40px;
+        color: #ffff;
+        margin: 10px;
+    }
+
+    h2 {
+        font-family: "Red Rose";
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 60px;
+        color: #2BB1FF;
+        margin: 10px;
+    }
+
+    &__title {
+        @include mx.flex-center(column);
+    }
+}
+
+.winnerbacktogamebutton {
+    cursor: pointer;
+    background-color: #86E9D633;
+    border: 1px solid #4DD5BC;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    p {
+        font-family: "Red Rose";
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 16px;
+        color:white;
+        padding-left:10px;
+        padding-right: 10px;
     }
 }

@@ -2,13 +2,9 @@ import { state, type State, Card } from "../scripts/menu";
 import { themes, boardSizes } from "../database/db";
 import { codeVibesThemeTemplate } from "../templates/game_screen";
 import { gamingThemeTemplate } from "../templates/game_screen";
-import { daProjectsThemeTemplate } from "../templates/game_screen";
-import { foodsThemeTemplate } from "../templates/game_screen";
 import { playerState, type PlayerState } from "./playerstate";
-import { renderCodeVibesPlayerState, initCodeVibesTheme } from "../themes/codevibes/codevibestheme";
+import { renderCodeVibesPlayerState, initCodeVibesTheme, winLoseDraw } from "../themes/codevibes/codevibestheme";
 import { renderGamingPlayerState, initGameVibesTheme } from "../themes/gaming/gamingtheme";
-import { initDaProjectsTheme, renderDaProjectsPlayerState } from "../themes/daprojects/daprojectstheme";
-import { initFoodsProjectsTheme, renderFoodsPlayerState } from "../themes/foods/foodstheme"
 
 /**
  * 
@@ -19,6 +15,7 @@ function generateGameFromState(state: State, playerState: PlayerState) {
     if (!state.theme || !state.size) return;
     const themeData = themes[state.theme as keyof typeof themes];
     const numberOfPairs = boardSizes[state.size as keyof typeof boardSizes];
+    playerState.totalPairs = numberOfPairs;
     const selectedFrontsides = themeData.frontside.slice(0, numberOfPairs);
     const cards = createCardsFromPairs(selectedFrontsides, themeData.frontside_path, themeData.backside);
     return shuffleCards(cards);
@@ -72,6 +69,9 @@ document.getElementById("startbutton")?.addEventListener("click", () => {
     startGame(state, playerState)
 });
 
+/**
+ * Function that essentially starts the game depending on what the user has choosen, also it updates the headerUI
+ */
 function startGame(state: State, playerState: PlayerState){
     const cards = generateGameFromState(state, playerState);
     if (!cards) return;
@@ -83,14 +83,6 @@ function startGame(state: State, playerState: PlayerState){
     if (state.theme === "gaming_theme") {
         game!.innerHTML = gamingThemeTemplate(cards, playerState);
         initGameVibesTheme();
-    }
-    if (state.theme === "da_projects_theme") {
-        game!.innerHTML = daProjectsThemeTemplate(cards, playerState);
-        initDaProjectsTheme();
-    }
-    if (state.theme === "foods_theme") {
-        game!.innerHTML = foodsThemeTemplate(cards, playerState);
-        initFoodsProjectsTheme();
     }
 }
 
@@ -143,12 +135,6 @@ function updatePlayerUI() {
     if(state.theme === "gaming_theme"){
         renderGamingPlayerState(playerState);
     }
-    if (state.theme === "da_projects_theme") {
-        renderDaProjectsPlayerState(playerState);
-    }
-    if(state.theme === "foods_theme"){
-        renderFoodsPlayerState(playerState);
-    }
 }
 
 /**
@@ -174,5 +160,7 @@ function updateScore() {
         playerState.playerTwoScore += 1;
         playerState.matchedPairs +=1;
     }
-    updatePlayerUI();
+    if (playerState.matchedPairs === playerState.totalPairs) {
+        winLoseDraw(playerState);
+    }
 }

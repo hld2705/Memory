@@ -17,3 +17,13 @@ export type PlayerState = {
     matchedPairs: number;
     totalPairs: number;
 }
+
+/**
+ * Interface for the winner data, helping with shortening the functions
+ */
+export interface WinnerData {
+    image: string;
+    text: string;
+    color: string;
+    textDraw?: string;
+}

@@ -14,7 +14,15 @@ export function endGameCodeVibesTemplate(){
 }
 
 export function winLoseDrawCodeVibesTemplate(){
-    return `<div>
-
+    return `<div class="winoverlaycodevibes">
+                <img src="../assets/cards/codevibestheme/Confetti.svg">
+                    <div class="winoverlaycodevibes__title">
+                    <h3 data-player-draw-text>The winner is</h3>
+                    <h2 data-player-won-text>BLUE PLAYER</h2>
+                    <img data-player-won-image src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
+                        <div class="winnerbacktogamebutton">
+                            <p>Back to start</p>
+                        </div>
+                    </div>
             </div>`
 }

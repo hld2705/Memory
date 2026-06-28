@@ -1,6 +1,6 @@
-import { PlayerState } from "../../scripts/playerstate";
-import {endGameCodeVibesTemplate} from "./codevibestemplate";
-import {winLoseDrawCodeVibesTemplate} from "./codevibestemplate";
+import {playerState, PlayerState, WinnerData } from "../../scripts/playerstate";
+import {endGameCodeVibesTemplate, winLoseDrawCodeVibesTemplate} from "./codevibestemplate";
+
 /**
  * Function that rerenders the playerstates(score, and position) only for this team because of needed "Blue" and "Orange" text 
  */
@@ -25,7 +25,7 @@ export function renderCodeVibesPlayerState(playerState: PlayerState) {
  * Helper function calling all of the other "exit game" functions
  */
 export function initCodeVibesTheme() {
-    const gameOverlay = document.getElementById("gameoverlay");
+    const gameOverlay = document.querySelector(".gameoverlay");
     if (!gameOverlay) return;
     gameOverlay.addEventListener("click", (e) => {
         const target = e.target as HTMLElement;
@@ -40,6 +40,9 @@ export function initCodeVibesTheme() {
     
 }
 
+/**
+ * Helper function for switching the currentplayer tags
+ */
 export function currentPlayerImage(playerState: PlayerState) {
     const currentPlayerImage = document.querySelector('[data-current-player-image]') as HTMLImageElement | null;
     if (!currentPlayerImage) return;
@@ -51,15 +54,67 @@ export function currentPlayerImage(playerState: PlayerState) {
     }
 }
 
+/**
+ * Helper function for deciding the winner
+ */
+function getWinner(playerState: PlayerState): WinnerData {
+    if(playerState.playerOneScore > playerState.playerTwoScore){
+        return {
+            image: "../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg",
+            text: "BLUE PLAYER",
+            color: "#2BB1FF"};}
+    if(playerState.playerOneScore < playerState.playerTwoScore){
+        return {
+            image: "../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg",
+            text: "ORANGE PLAYER",
+            color: "#F58E39"};}
+    return {
+        image: "../assets/cards/codevibestheme/scale_icon_code_vibes_theme.svg",
+        textDraw: "It's a",
+        text: "DRAW",
+        color: "#4DD5BC"};
+}
+
+/**
+ * Callout-render function for rendering the winner and the needed template
+ */
 export function winLoseDraw(playerState: PlayerState){
     const gameOverlay = document.querySelector(".gameoverlay");
-    if (!gameOverlay) return;
-
-    if(playerState.matchedPairs === playerState.totalPairs){
-        gameOverlay.innerHTML += winLoseDrawCodeVibesTemplate();
-    }
+    if(!gameOverlay) return;
+    gameOverlay.innerHTML += winLoseDrawCodeVibesTemplate();
+    const winner = getWinner(playerState);
+    (document.querySelector("[data-player-won-image]") as HTMLImageElement).src = winner.image;
+    (document.querySelector("[data-player-draw-text]") as HTMLElement).textContent = winner.textDraw ?? "The winner is";
+    (document.querySelector("[data-player-won-text]") as HTMLElement).textContent = winner.text;
+    (document.querySelector("[data-player-won-text]") as HTMLElement).style.color = winner.color;
 }
-/*
-document.addEventListener("keydown", ("8") =>{
-    playerState.matchedPairs === playerState.totalPairs
-})*/
+
+
+document.addEventListener("keydown", (e) => {
+
+    if(e.key === "8"){
+        playerState.playerOneScore = 5;
+        playerState.playerTwoScore = 2;
+        winLoseDraw(playerState);
+    }
+    else if(e.key === "9"){
+        playerState.playerOneScore = 2;
+        playerState.playerTwoScore = 5;
+        winLoseDraw(playerState);
+    }
+    else if(e.key === "7"){
+        playerState.playerOneScore = 3;
+        playerState.playerTwoScore = 3;
+        winLoseDraw(playerState);
+    }
+});
+
+/**
+ * Function that returns to main menu after winning
+ */
+document.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (target.closest(".winnerbacktogamebutton")) {
+        document.querySelector(".gameoverlay")?.remove();
+    }
+});
