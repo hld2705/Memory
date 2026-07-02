@@ -54,6 +54,7 @@
 .currentplayer {
     @include mx.flex-center(row);
     gap: 20px;
+
     h2 {
         font-family: Orbitron;
         font-weight: 700;
@@ -62,7 +63,7 @@
         color: #FFFFFF
     }
 
-    &__icon{
+    &__icon {
         height: 30px;
         width: 30px;
     }
@@ -176,6 +177,7 @@
         border-radius: 10px;
         border: 2px solid #E71C4F;
         color: #ED1B7614;
+
         p {
             font-family: "Orbitron";
             font-weight: 700;
@@ -183,5 +185,33 @@
             font-size: 16px;
             color: #ED1B76;
         }
+    }
+}
+
+.gameovergamingtemplate {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #294f60;
+
+    h1 {
+        font-family: Orbitron;
+        font-weight: 900;
+        font-size: 124px;
+        margin-bottom: 35px;
+        color: #ED1B76;
+    }
+
+
+    &__finalscore{
+        font-family: Orbitron;
+        font-weight: 700;
+        font-style: Bold;
+        font-size: 28px;
+        color: white;
+    }
+
+    &__result {
+        @include mx.flex-center(row);
     }
 }

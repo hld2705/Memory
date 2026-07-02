@@ -1,5 +1,5 @@
 import { playerState, PlayerState, WinnerData } from "../../scripts/playerstate";
-import { endGameGamingThemeTemplate, winGameThemeTemplate } from "../gaming/gamingthemetemplate";
+import { endGameGamingThemeTemplate, winGameThemeTemplate, gameOverGamingThemeTemplate } from "../gaming/gamingthemetemplate";
 
 /**
  * 
@@ -93,17 +93,17 @@ document.addEventListener("keydown", (e) => {
     if(e.key === "8"){
         playerState.playerOneScore = 5;
         playerState.playerTwoScore = 2;
-        winLoseDraw(playerState);
+        gameOverGamingTheme(playerState);
     }
     else if(e.key === "9"){
         playerState.playerOneScore = 2;
         playerState.playerTwoScore = 5;
-        winLoseDraw(playerState);
+        gameOverGamingTheme(playerState);
     }
     else if(e.key === "7"){
         playerState.playerOneScore = 3;
         playerState.playerTwoScore = 3;
-        winLoseDraw(playerState);
+        gameOverGamingTheme(playerState);
     }
 });
 
@@ -116,3 +116,19 @@ document.addEventListener("click", (e) => {
         document.querySelector(".gameoverlay")?.remove();
     }
 });
+
+export function gameOverGamingTheme(playerState: { currentPlayer: number; playerOneScore: number; playerTwoScore: number; flippedCards: HTMLElement[]; locked: boolean; matchedPairs: number; totalPairs: number; }){
+    const gameOverlay = document.querySelector(".gameoverlay");
+        if (!gameOverlay) return;
+        gameOverlay.innerHTML += gameOverGamingThemeTemplate();
+        const gameOver = document.querySelector(".gameovergamingtemplate") as HTMLElement;
+        gameOver.classList.add("slide-up");
+        setTimeout(() => {
+            gameOver.classList.remove("slide-up");
+            gameOver.classList.add("slide-down");
+            gameOver.addEventListener("animationend", () => {
+                gameOver.remove();
+                winLoseDraw(playerState);
+            }, { once: true });
+        }, 2000);
+}

@@ -193,13 +193,42 @@
     border: 1px solid #4DD5BC;
     margin-top: 40px;
     margin-bottom: 60px;
+
     p {
         font-family: "Red Rose";
         font-weight: 700;
         font-style: Bold;
         font-size: 16px;
-        color:white;
-        padding-left:10px;
+        color: white;
+        padding-left: 10px;
         padding-right: 10px;
+    }
+}
+
+.gameovercodevibes {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: #303131;
+
+    h1 {
+        color: #4DD5BC;
+        font-size: 200px;
+        text-shadow: -5px 0px 6px rgba(255, 255, 255, 0.5);
+        font-family: "Red Rose";
+        margin-bottom: 35px;
+    }
+
+    p {
+        font-family: "Red Rose";
+        font-weight: 400;
+        font-size: 26px;
+        text-align: center;
+        color: white;
+    }
+
+    &__result {
+        background-color: #86E9D633;
+
     }
 }

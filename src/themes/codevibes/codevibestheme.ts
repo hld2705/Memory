@@ -1,5 +1,5 @@
 import {playerState, PlayerState, WinnerData } from "../../scripts/playerstate";
-import {endGameCodeVibesTemplate, winLoseDrawCodeVibesTemplate} from "./codevibestemplate";
+import {endGameCodeVibesTemplate, winLoseDrawCodeVibesTemplate, gameOverCodeVibesTemplate} from "./codevibestemplate";
 
 /**
  * Function that rerenders the playerstates(score, and position) only for this team because of needed "Blue" and "Orange" text 
@@ -89,25 +89,39 @@ export function winLoseDraw(playerState: PlayerState){
     (document.querySelector("[data-player-won-text]") as HTMLElement).style.color = winner.color;
 }
 
-
+export function gameOverCodeVibes(playerState: PlayerState) {
+    const gameOverlay = document.querySelector(".gameoverlay");
+    if (!gameOverlay) return;
+    gameOverlay.innerHTML += gameOverCodeVibesTemplate();
+    const gameOver = document.querySelector(".gameovercodevibes") as HTMLElement;
+    gameOver.classList.add("slide-up");
+    setTimeout(() => {
+        gameOver.classList.remove("slide-up");
+        gameOver.classList.add("slide-down");
+        gameOver.addEventListener("animationend", () => {
+            gameOver.remove();
+            winLoseDraw(playerState);
+        }, { once: true });
+    }, 2000);
+}
+/*
 document.addEventListener("keydown", (e) => {
-
     if(e.key === "8"){
         playerState.playerOneScore = 5;
         playerState.playerTwoScore = 2;
-        winLoseDraw(playerState);
+        gameOverCodeVibes(playerState);
     }
     else if(e.key === "9"){
         playerState.playerOneScore = 2;
         playerState.playerTwoScore = 5;
-        winLoseDraw(playerState);
+        gameOverCodeVibes(playerState);
     }
     else if(e.key === "7"){
         playerState.playerOneScore = 3;
         playerState.playerTwoScore = 3;
-        winLoseDraw(playerState);
+        gameOverCodeVibes(playerState);
     }
-});
+});*/
 
 /**
  * Function that returns to main menu after winning

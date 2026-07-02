@@ -1,4 +1,6 @@
-export function endGameCodeVibesTemplate(){
+import { playerState } from "../../scripts/playerstate";
+
+export function endGameCodeVibesTemplate() {
     return `<div class="endgameoverlaycodevibes">
                 <div class="endgameoverlaycodevibes__window">
                     <h1>Are you sure you want to quit the game?</h1>
@@ -13,7 +15,22 @@ export function endGameCodeVibesTemplate(){
             </div>`
 }
 
-export function winLoseDrawCodeVibesTemplate(){
+export function gameOverCodeVibesTemplate() {
+    return `<div class="gameovercodevibes">
+                <h1>Game over</h1>
+                <p>Final score</p>
+            <div class="gameovercodevibes__result">
+            <div class="playercountercodevibes">
+                <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_blue_code_vibes.svg">
+                <p data-score="player_one" class="playercountercodevibes__blue">Blue ${playerState.playerOneScore}</p>
+                <img class="playercountercodevibes__icon" src="../assets/cards/codevibestheme/label_orange_code_vibes.svg">
+                <p data-score="player_two" class="playercountercodevibes__orange">Orange ${playerState.playerTwoScore}</p>
+            </div>
+            </div>
+    </div>`
+}
+
+export function winLoseDrawCodeVibesTemplate() {
     return `<div class="winoverlaycodevibes">
                 <img src="../assets/cards/codevibestheme/Confetti.svg">
                     <div class="winoverlaycodevibes__title">

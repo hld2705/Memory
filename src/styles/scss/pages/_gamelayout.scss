@@ -19,3 +19,35 @@
     overflow-y: auto;
     gap: 32px;
 }
+
+@keyframes slideUp {
+    from {
+        transform: translateY(110%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(0%);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.slide-down {
+    animation: slideDown .6s ease forwards;
+}
+
+.slide-up{
+    animation: slideUp .6s ease backwards;
+}

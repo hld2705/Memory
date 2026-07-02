@@ -3,8 +3,8 @@ import { themes, boardSizes } from "../database/db";
 import { codeVibesThemeTemplate } from "../templates/game_screen";
 import { gamingThemeTemplate } from "../templates/game_screen";
 import { playerState, type PlayerState } from "./playerstate";
-import { renderCodeVibesPlayerState, initCodeVibesTheme, winLoseDraw } from "../themes/codevibes/codevibestheme";
-import { renderGamingPlayerState, initGameVibesTheme } from "../themes/gaming/gamingtheme";
+import { renderCodeVibesPlayerState, initCodeVibesTheme, gameOverCodeVibes } from "../themes/codevibes/codevibestheme";
+import { renderGamingPlayerState, initGameVibesTheme, gameOverGamingTheme } from "../themes/gaming/gamingtheme";
 
 /**
  * 
@@ -93,6 +93,8 @@ document.addEventListener("click", (e) => {
     const card = (e.target as HTMLElement).closest(".card") as HTMLElement;
     if (!card) return;
     if (playerState.locked) return;
+    if (card.classList.contains("matched")) return;
+    if (card.classList.contains("is-flipped")) return;
     card.classList.add("is-flipped");
     playerState.flippedCards.push(card);
     if (playerState.flippedCards.length === 2) {
@@ -161,6 +163,15 @@ function updateScore() {
         playerState.matchedPairs +=1;
     }
     if (playerState.matchedPairs === playerState.totalPairs) {
-        winLoseDraw(playerState);
+        gameOver(playerState)
+    }
+}
+
+function gameOver(playerState: { currentPlayer: number; playerOneScore: number; playerTwoScore: number; flippedCards: HTMLElement[]; locked: boolean; matchedPairs: number; totalPairs: number; }){
+    if(state.theme === "code_vibes_theme"){
+        gameOverCodeVibes(playerState);
+    }
+    if(state.theme === "gaming_theme"){
+        gameOverGamingTheme(playerState);
     }
 }

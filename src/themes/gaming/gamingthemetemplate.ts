@@ -1,3 +1,5 @@
+import { playerState } from "../../scripts/playerstate"
+
 export function endGameGamingThemeTemplate() {
     return `<div class="endgameoverlaygamingtheme">
                 <div class="endgameoverlaygamingtheme__window">
@@ -13,6 +15,7 @@ export function endGameGamingThemeTemplate() {
             </div>`
 }
 
+
 export function winGameThemeTemplate(){
     return `<div class="wingametheme">
                 <img src="../assets/cards/codevibestheme/Confetti.svg">
@@ -25,4 +28,19 @@ export function winGameThemeTemplate(){
                         </div>
                     </div>
             </div>`
+}
+
+export function gameOverGamingThemeTemplate(){
+    return `<div class="gameovergamingtemplate">
+                    <h1>Game over</h1>
+                    <p class="gameovergamingtemplate__finalscore">Final score</p>
+                <div class="gameovergamingtemplate__result">
+                    <div class="playercounter">
+                    <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_orange_code_vibes_theme.svg">
+                    <p data-score="player_one" class="playercounter__orange">${playerState.playerOneScore}</p>
+                    <img class="playercounter__icon" src="../assets/cards/codevibestheme/player_blue_code_vibes_theme.svg">
+                    <p data-score="player_two" class="playercounter__blue">${playerState.playerTwoScore}</p>
+                    </div>
+                </div>
+        </div>`
 }
